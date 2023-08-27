@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://calendar.exmatrikulator.de'
 languageCode = 'en-us'
 title = "Ex's Europe Confernce & Camp Calendar"
 theme = "PaperMod"
