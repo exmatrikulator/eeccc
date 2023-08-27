@@ -1,0 +1,11 @@
+
+{{ range .RegularPagesRecursive.GroupByParamDate "eventStart"  "January 2006" }}
+<h3><a href="/events/{{ index (split .Key " ") 1 }}">{{.Key}}</a></h3>
+<ul>
+    {{range .Pages}}
+        <li><a href="{{ .Permalink }}">{{ .Param "eventStart" | time.Format "2. January"  }}: {{.Title}} ({{ .Param "place"}})</a> {{ partial "event-icons.html" . }} </li>
+    {{end}}
+</ul>
+{{end}}
+
+

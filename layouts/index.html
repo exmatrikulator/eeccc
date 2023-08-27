@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+{{ $arrow := dict
+    "vendor" "fas"
+    "name" "arrow-right"
+  }}
+
+
+  {{ partial "icons/icon" $arrow }} <b><a href="/events">All Events</a></b><br/><br/>
+  {{ partial "icons/icon" $arrow }} <a href="/tags">Tags</a><br/>
+  {{ partial "icons/icon" $arrow }} <a href="/languages">Languages</a><br/>
+  {{ partial "icons/icon" $arrow }} <a href="/indoor/true">Indoor Events</a><br/>
+  {{ partial "icons/icon" $arrow }} <a href="/outdoor/true">Outdoor Events</a><br/>
+  {{ partial "icons/icon" $arrow }} <a href="/overnight/true">Overnight Events</a><br/>
+
+  
+    {{ partial "events.html" . }}
+{{end}}

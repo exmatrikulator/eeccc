@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <section id="main">
+    <h1 id="title">{{ .Title }} {{ .Param "languages"}}</h1>
+    <div>
+        {{ .Param "eventStart" | time.Format ":date_long"  }} - {{ .Param "eventEnd" | time.Format ":date_long"  }} <br/>
+        {{ .Scratch.Set "extended-icons" true }}
+        {{ partial "event-icons.html" .}}
+        {{ .Scratch.Delete "extended-icons" }}
+    </div>
+    <div>
+        <article id="content">
+          {{ .Content }}
+        </article>
+    </div>
+    {{ if .Param "hyperlink" }}
+    <div>
+      <a href="{{ .Param "hyperlink"}} ">Website</a>
+    </div>
+    {{end}}
+</section>
+
+{{end}}

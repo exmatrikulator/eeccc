@@ -1,0 +1,5 @@
+{{ define "main" }}
+    {{ .Scratch.Set "extended-icons" false }}
+    {{ partial "events.html" .}}
+    {{ .Scratch.Delete "extended-icons" }}
+{{end}}

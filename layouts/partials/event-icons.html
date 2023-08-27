@@ -1,0 +1,46 @@
+
+{{ $house := dict
+    "vendor" "fas"
+    "name" "house"
+  }}
+{{ $tree := dict
+    "vendor" "fas"
+    "name" "tree"
+    "color" "green"
+}}
+{{ $bed := dict
+    "vendor" "fas"
+    "name" "bed"
+  }}
+{{ $video := dict
+    "vendor" "fas"
+    "name" "video"
+}}
+
+
+{{ if .Param "indoor" }}
+    {{ partial "icons/icon" $house }}
+    {{ if .Scratch.Get "extended-icons" }}
+    Indoor <br/>
+    {{end}}
+{{end}}
+{{ if .Param "outdoor" }}
+    {{ partial "icons/icon" $tree }}
+    {{ if .Scratch.Get "extended-icons" }}
+    Outdoor <br/>
+    {{end}}
+{{end}}
+
+{{ if .Param "overnight" }}
+    {{ partial "icons/icon" $bed }}
+    {{ if .Scratch.Get "extended-icons" }}
+    Overnight <br/>
+    {{end}}
+{{end}}
+
+{{ if .Param "streaming" }}
+    {{ partial "icons/icon" $video }}
+    {{ if .Scratch.Get "extended-icons" }}
+    With streaming <br/>
+    {{end}}
+{{end}}

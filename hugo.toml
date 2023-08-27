@@ -1,0 +1,21 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = "Ex's Europe Confernce & Camp Calendar"
+theme = "PaperMod"
+
+[taxonomies]
+  languages = 'languages'
+  tags = 'tags'
+  indoor = 'indoor'
+  outdoor = 'outdoor'
+  overnight = 'overnight'
+
+[module]
+[[module.imports]]
+  path = 'github.com/hugomods/icons/vendors/font-awesome'
+
+
+[cascade]
+    # dummy for template
+    eventStart = 1970-01-01T00:00:00+02:00
+    eventEnd = 1970-01-01T00:00:00+02:00
