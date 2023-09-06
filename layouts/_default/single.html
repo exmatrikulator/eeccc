@@ -3,6 +3,14 @@
     <h1 id="title">{{ .Title }} {{ .Param "languages"}}</h1>
     <div>
         {{ .Param "eventStart" | time.Format ":date_long"  }} - {{ .Param "eventEnd" | time.Format ":date_long"  }} <br/>
+
+        {{ $place := dict
+          "vendor" "fas"
+          "name" "location-dot"
+        }}
+        {{ partial "icons/icon" $place }}
+        {{ .Param "place" }} <br/>
+
         {{ .Scratch.Set "extended-icons" true }}
         {{ partial "event-icons.html" .}}
         {{ .Scratch.Delete "extended-icons" }}
@@ -14,6 +22,11 @@
     </div>
     {{ if .Param "hyperlink" }}
     <div>
+      {{ $globe := dict
+        "vendor" "fas"
+        "name" "globe"
+      }}
+      {{ partial "icons/icon" $globe }}
       <a href="{{ .Param "hyperlink"}} ">Website</a>
     </div>
     {{end}}
