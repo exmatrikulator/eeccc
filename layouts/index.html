@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-{{ $arrow := dict
+  {{ $arrow := dict
     "vendor" "fas"
     "name" "arrow-right"
   }}
@@ -14,5 +14,5 @@
   {{ partial "icons/icon" $arrow }} <a href="/overnight/true">Overnight Events</a><br/>
 
   
-    {{ partial "events.html" . }}
+  {{ partial "events.html" (dict "context" . "allEvents" false)}}
 {{end}}

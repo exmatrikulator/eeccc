@@ -1,11 +1,17 @@
 
-{{ range .RegularPagesRecursive.GroupByParamDate "eventStart"  "January 2006" }}
-<h3><a href="/events/{{ index (split .Key " ") 1 }}">{{.Key}}</a></h3>
-<ul>
-    {{range .Pages}}
-        <li><a href="{{ .Permalink }}">{{ .Param "eventStart" | time.Format "2. January"  }}: {{.Title}} ({{ .Param "place"}})</a> {{ partial "event-icons.html" . }} </li>
+{{ $allEvents := .allEvents }}
+
+{{ range .context.RegularPagesRecursive.GroupByParamDate "eventStart"  "January 2006" }}
+    {{ $page := index .Pages 0 }} {{/* Each group has at least 1 page */}}
+    {{ if or (eq $allEvents true) ((time $page.Params.eventEnd).After now)}}
+
+    <h3><a href="/events/{{ index (split .Key " ") 1 }}">{{.Key}}</a></h3>
+    <ul>
+        {{range .Pages}}
+            <li><a href="{{ .Permalink }}">{{ .Param "eventStart" | time.Format "2. January"  }}: {{.Title}} ({{ .Param "place"}})</a> {{ partial "event-icons.html" . }} </li>
+        {{end}}
+    </ul>
     {{end}}
-</ul>
 {{end}}
 
 
